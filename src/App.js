@@ -9,7 +9,6 @@ import './style/App.css';
 
 
 
-
 const App = () => {
 
   const [tasks, setTasks] = useState([
@@ -22,8 +21,30 @@ const App = () => {
   ]);
 
   const doneTask = (id) => {
-    console.log(id)
+    const updateTasks = tasks.map(task => {
+      if (task.id === id) {
+        task.active = false;
+      }
+      return task;
+    });
+
+    setTasks(updateTasks);
+
   }
+
+  const deleteTask = (id) => {
+    const updateTasks = tasks.filter(task => {
+      if (task.id !== id) return task;
+
+    });
+
+    setTasks(updateTasks);
+  }
+
+  const addTask = () => {
+    console.log("dodano")
+  }
+
 
 
 
@@ -33,7 +54,7 @@ const App = () => {
         <Header />
       </header>
       <main>
-        <Main tasks={tasks} doneTask={doneTask} />
+        <Main tasks={tasks} doneTask={doneTask} deleteTask={deleteTask} addTask={addTask} />
       </main>
       <footer>
         <Footer />

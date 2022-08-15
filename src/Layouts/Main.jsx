@@ -1,35 +1,42 @@
 import React from 'react';
 
+import Task from './Task';
+import AddTask from './AddTask'
+
 import '../style/Main.css'
-import ActiveTask from './ActiveTask';
-import DoneTasks from './DoneTask';
 
 
 
 
-const Main = ({ tasks, doneTask }) => {
+
+const Main = ({ tasks, doneTask, deleteTask, addTask }) => {
 
     const active = [...tasks].filter(task => task.active)
+    const activeTasks = active.map(task => <Task key={task.id} task={task} doneTask={doneTask} deleteTask={deleteTask} />)
 
-    console.log(active)
-    const activeTasks = active.map(task => <ActiveTask key={task.id} task={task} doneTask={doneTask} />)
-
+    const done = [...tasks].filter(task => task.active === false)
+    const doneTasks = done.map(task => <Task key={task.id} task={task} deleteTask={deleteTask} />)
 
 
 
     return (
 
         <div>
+            <div>
+                <AddTask addTask={addTask} />
+            </div>
             <div className='tasks'>
-                <h2>Do zrobienia:</h2>
+                <h2>To do:</h2>
                 <ul>
                     {activeTasks}
-
                 </ul>
             </div>
 
             <div className='tasks'>
-                <DoneTasks />
+                <h2>Done:</h2>
+                <ul>
+                    {doneTasks}
+                </ul>
             </div>
 
         </div>
