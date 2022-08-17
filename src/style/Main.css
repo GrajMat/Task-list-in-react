@@ -1,16 +1,8 @@
 main {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     /* flex-direction: column; */
     height: 80vh;
-}
-
-.tasks {
-    padding: 10px;
-}
-
-.tasks ul li span {
-    margin: 5px;
-    font-size: 1.2em;
 }

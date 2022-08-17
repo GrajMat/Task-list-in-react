@@ -1,0 +1,12 @@
+.tasks {
+    padding: 10px;
+}
+
+.tasks ul li span {
+    margin: 5px;
+    font-size: 1.2em;
+}
+
+.tasks ul li span.priority {
+    color: red;
+}

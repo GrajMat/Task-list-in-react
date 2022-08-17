@@ -9,13 +9,13 @@ import '../style/Main.css'
 
 
 
-const Main = ({ tasks, doneTask, deleteTask, addTask }) => {
+const Main = ({ tasks, doneTask, showDialog, addTask }) => {
 
     const active = [...tasks].filter(task => task.active)
-    const activeTasks = active.map(task => <Task key={task.id} task={task} doneTask={doneTask} deleteTask={deleteTask} />)
+    const activeTasks = active.map(task => <Task key={task.id} task={task} doneTask={doneTask} showDialog={showDialog} />)
 
     const done = [...tasks].filter(task => task.active === false)
-    const doneTasks = done.map(task => <Task key={task.id} task={task} deleteTask={deleteTask} />)
+    const doneTasks = done.map(task => <Task key={task.id} task={task} showDialog={showDialog} />)
 
 
 

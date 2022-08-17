@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 const AddTask = ({ addTask }) => {
 
     const [state, setState] = useState({
-        text: "",
+        text: '',
         isPriority: false,
         date: new Date().toISOString().slice(0, 10),
         message: ""
@@ -13,9 +13,26 @@ const AddTask = ({ addTask }) => {
     const handleOnChange = (e) => {
         const value = e.target.value;
         const name = e.target.name;
-        if (name === "text") setState({ text: value })
-        else if (name === "date") setState({ date: value })
-        else if (name === "checkbox") setState({ isPriority: !state.isPriority })
+        if (name === "text") setState({ ...state, text: value })
+        else if (name === "date") setState({ ...state, date: value })
+        else if (name === "checkbox") setState({ ...state, isPriority: !state.isPriority })
+
+    }
+
+    const createTask = () => {
+        if (state.text.length > 0) {
+            const { text, isPriority, date } = state
+            addTask(text, isPriority, date);
+
+            setState({
+                text: "",
+                isPriority: false,
+                date: new Date().toISOString().slice(0, 10),
+                message: ""
+            })
+        } else {
+            setState({ ...state, message: "enter the task." })
+        }
 
     }
 
@@ -30,7 +47,8 @@ const AddTask = ({ addTask }) => {
             <label>Deadline
                 <input onChange={handleOnChange} type="date" name="date" value={state.date} />
             </label>
-            <button onClick={addTask}>Add</button>
+            <button onClick={createTask}>Add</button>
+            {state.message.length > 0 ? <p style={{ color: 'red' }}>{state.message}</p> : null}
         </div>
     );
 }
