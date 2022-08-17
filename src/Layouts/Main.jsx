@@ -12,9 +12,28 @@ import '../style/Main.css'
 const Main = ({ tasks, doneTask, showDialog, addTask }) => {
 
     const active = [...tasks].filter(task => task.active)
-    const activeTasks = active.map(task => <Task key={task.id} task={task} doneTask={doneTask} showDialog={showDialog} />)
-
     const done = [...tasks].filter(task => task.active === false)
+
+    if (done.length >= 2) {
+        done.sort((a, b) => {
+            if (a.finishDate > b.finishDate) return -1
+            if (a.finishDate < b.finishDate) return 1
+            return 0
+        })
+
+    }
+
+    if (active.length >= 2) {
+        active.sort((a, b) => {
+            a = a.text.toLowerCase()
+            b = b.text.toLowerCase()
+            if (a > b) return 1
+            if (a < b) return -1
+            return 0
+        })
+    }
+
+    const activeTasks = active.map(task => <Task key={task.id} task={task} doneTask={doneTask} showDialog={showDialog} />)
     const doneTasks = done.map(task => <Task key={task.id} task={task} showDialog={showDialog} />)
 
 
