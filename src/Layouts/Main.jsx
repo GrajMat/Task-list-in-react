@@ -45,14 +45,18 @@ const Main = ({ tasks, doneTask, showDialog, addTask }) => {
                 <AddTask addTask={addTask} />
             </div>
             <div className='tasks'>
-                <h2>To do:</h2>
+                <div>
+                    <h2 style={{ backgroundColor: '#FFA2A2' }}>To do</h2>
+                </div>
                 <ul>
                     {activeTasks}
                 </ul>
             </div>
 
             <div className='tasks'>
-                <h2>Done:</h2>
+                <div>
+                    <h2 style={{ backgroundColor: '#A7E6FF' }}>Done</h2>
+                </div>
                 <ul>
                     {doneTasks}
                 </ul>

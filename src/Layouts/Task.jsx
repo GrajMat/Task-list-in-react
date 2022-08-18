@@ -1,6 +1,7 @@
 import React from 'react';
 
-import '../style/Task.css'
+import '../style/Task.css';
+import "../fonts/font-awesome-4.7.0/css/font-awesome.css";
 
 const Task = ({ task, doneTask, showDialog }) => {
 
@@ -17,21 +18,27 @@ const Task = ({ task, doneTask, showDialog }) => {
     const minutes = new Date(finishDate).getMinutes();
     // const seconds = new Date(finishDate).getSeconds();
 
+    const icon = () => {
+        if (important && active) return <span style={{ color: 'red' }} class="fa fa-exclamation-circle" aria-hidden="true"></span>
+        else if (active) return <span class="fa fa-exclamation-circle" aria-hidden="true"></span>
+        else return <span class="fa fa-check-circle-o" aria-hidden="true"></span>
+    }
 
 
     // console.log(finishDate)
     return (
-        <div>
 
-            <li>
-                <span>{text}</span>
-                {active ? <span>{date}</span> : null}
-                {finishDate ? <span>Finish date: {newDate} {hours}:{minutes}</span> : null}
-                {important && active ? <span className='priority'>Priority</span> : null}
-                {active ? <button onClick={() => { doneTask(id) }}>Done</button> : null}
-                <button onClick={() => { showDialog(id) }}>Delete</button>
-            </li>
-        </div>
+        <li>
+            {/* {important && active ? <span style={{ color: 'red' }} class="fa fa-exclamation-circle" aria-hidden="true"></span> : <span class="fa fa-check-circle-o" aria-hidden="true"></span>}
+            {active ? <span class="fa fa-exclamation-circle" aria-hidden="true"></span> : <span class="fa fa-check-circle-o" aria-hidden="true"></span>} */}
+            {icon()}
+
+            <span className='text'>{text}</span>
+            {active ? <span className='date'>{date}</span> : null}
+            {finishDate ? <span>Finish date: {newDate} {hours}:{minutes}</span> : null}
+            {active ? <button className='doneBtn' onClick={() => { doneTask(id) }}>Done</button> : null}
+            <button className='deleteBtn' onClick={() => { showDialog(id) }}>Delete</button>
+        </li>
 
     );
 }
