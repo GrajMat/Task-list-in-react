@@ -9,7 +9,6 @@ const AddTask = ({ addTask }) => {
         text: '',
         isPriority: false,
         date: new Date().toISOString().slice(0, 10),
-        message: ""
     })
 
     const handleOnChange = (e) => {
@@ -21,7 +20,7 @@ const AddTask = ({ addTask }) => {
 
     }
 
-    const createTask = () => {
+    const createTask = (e) => {
         if (state.text.length > 0) {
             const { text, isPriority, date } = state
             addTask(text, isPriority, date);
@@ -29,11 +28,11 @@ const AddTask = ({ addTask }) => {
             setState({
                 text: "",
                 isPriority: false,
-                date: new Date().toISOString().slice(0, 10),
-                message: ""
+                date: new Date().toISOString().slice(0, 10)
             })
         } else {
-            setState({ ...state, message: "enter the task." })
+            const text = document.getElementById('inputText');
+            text.focus()
         }
 
     }
@@ -44,9 +43,7 @@ const AddTask = ({ addTask }) => {
             <h3>Add task:</h3>
 
             <label>
-                <input onChange={handleOnChange} type="text" name="text" value={state.text} placeholder="Task" />
-                {/* {state.message.length > 0 ? <p style={{ color: 'red' }}>{state.message}</p> : null} */}
-
+                <input id="inputText" onChange={handleOnChange} type="text" name="text" value={state.text} placeholder="Task" />
             </label>
 
 
