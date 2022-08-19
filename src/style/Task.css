@@ -22,25 +22,27 @@
     padding: 2px 5px
 }
 
-.tasks li {
+.tasks ul li {
     list-style: none;
     border-left: 1px solid #e4e4e4;
     border-right: 1px solid #e4e4e4;
     border-bottom: 1px solid #e4e4e4;
     padding: 5px 10px;
     display: flex;
-    text-align: center;
+    align-items: center;
     justify-content: center;
     flex-direction: row;
 }
 
 .tasks button {
     font-size: 0.9em;
-    margin-right: 5px;
-    padding: 2px 5px;
+    margin-right: 10px;
+    padding: 2px 7px;
     border: none;
-    border-radius: 10px;
-    color: #4C4E69
+    border-radius: 15px;
+    color: #4C4E69;
+    cursor: pointer;
+    height: 30px;
 }
 
 .tasks .deleteBtn {
@@ -48,13 +50,13 @@
 }
 
 .tasks .doneBtn {
-    background-color: #A7E6FF;
+    background-color: #B3EC8D;
 }
 
 
 .tasks ul li span {
     margin: 5px;
-    font-size: 1em;
+    font-size: 0.9em;
     margin-right: 10px;
     font-weight: 500;
     color: #4C4E69;
@@ -63,4 +65,8 @@
 .tasks ul li span.text {
     width: 400px;
     text-align: left;
+}
+
+.tasks ul li span.date span {
+    font-size: 0.8em;
 }

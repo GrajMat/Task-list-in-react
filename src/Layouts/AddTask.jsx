@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import '../style/AddTask.css';
+
 
 const AddTask = ({ addTask }) => {
 
@@ -37,18 +39,24 @@ const AddTask = ({ addTask }) => {
     }
 
     return (
-        <div>
-            <label>Task
-                <input onChange={handleOnChange} type="text" name="text" value={state.text} />
+
+        <div className='addTask'>
+            <h3>Add task:</h3>
+
+            <label>
+                <input onChange={handleOnChange} type="text" name="text" value={state.text} placeholder="Task" />
+                {/* {state.message.length > 0 ? <p style={{ color: 'red' }}>{state.message}</p> : null} */}
+
             </label>
-            <label>Priority
-                <input onChange={handleOnChange} type="checkbox" name="checkbox" checked={state.isPriority} />
+
+
+            <label>Important
+                <input className='checkbox' onChange={handleOnChange} type="checkbox" name="checkbox" checked={state.isPriority} />
             </label>
             <label>Deadline
                 <input onChange={handleOnChange} type="date" name="date" value={state.date} />
             </label>
             <button onClick={createTask}>Add</button>
-            {state.message.length > 0 ? <p style={{ color: 'red' }}>{state.message}</p> : null}
         </div>
     );
 }

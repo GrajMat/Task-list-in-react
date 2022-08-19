@@ -4,7 +4,7 @@ import '../style/Header.css'
 
 const Header = () => {
     return (
-        <h1>Lista zadań</h1>
+        <h1>Task List</h1>
 
     );
 }

@@ -35,7 +35,7 @@ const Task = ({ task, doneTask, showDialog }) => {
 
             <span className='text'>{text}</span>
             {active ? <span className='date'>{date}</span> : null}
-            {finishDate ? <span>Finish date: {newDate} {hours}:{minutes}</span> : null}
+            {finishDate ? <span className='date'>{newDate} {hours}:{minutes}</span> : null}
             {active ? <button className='doneBtn' onClick={() => { doneTask(id) }}>Done</button> : null}
             <button className='deleteBtn' onClick={() => { showDialog(id) }}>Delete</button>
         </li>
