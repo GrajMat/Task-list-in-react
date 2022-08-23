@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../style/Task.css';
+import '../style/style.css';
 import "../fonts/font-awesome-4.7.0/css/font-awesome.css";
 
 const Task = ({ task, doneTask, showDialog }) => {
@@ -19,9 +19,9 @@ const Task = ({ task, doneTask, showDialog }) => {
     // const seconds = new Date(finishDate).getSeconds();
 
     const icon = () => {
-        if (important && active) return <span style={{ color: 'red' }} class="fa fa-exclamation-circle" aria-hidden="true"></span>
-        else if (active) return <span class="fa fa-exclamation-circle" aria-hidden="true"></span>
-        else return <span class="fa fa-check-circle-o" aria-hidden="true"></span>
+        if (important && active) return <span style={{ color: 'red' }} className="fa fa-exclamation-circle" aria-hidden="true"></span>
+        else if (active) return <span className="fa fa-exclamation-circle" aria-hidden="true"></span>
+        else return <span className="fa fa-check-circle-o" aria-hidden="true"></span>
     }
 
 
@@ -29,15 +29,18 @@ const Task = ({ task, doneTask, showDialog }) => {
     return (
 
         <li>
-            {/* {important && active ? <span style={{ color: 'red' }} class="fa fa-exclamation-circle" aria-hidden="true"></span> : <span class="fa fa-check-circle-o" aria-hidden="true"></span>}
-            {active ? <span class="fa fa-exclamation-circle" aria-hidden="true"></span> : <span class="fa fa-check-circle-o" aria-hidden="true"></span>} */}
-            {icon()}
+            <div>
+                {icon()}
+                <span className='text'>{text}</span>
+            </div>
 
-            <span className='text'>{text}</span>
-            {active ? <span className='date'>{date}</span> : null}
-            {finishDate ? <span className='date'>{newDate} {hours}:{minutes}</span> : null}
-            {active ? <button className='doneBtn' onClick={() => { doneTask(id) }}>Done</button> : null}
-            <button className='deleteBtn' onClick={() => { showDialog(id) }}>Delete</button>
+            <div>
+                {active ? <span className='date'>{date}</span> : null}
+                {finishDate ? <span className='date'>{newDate} {hours}:{minutes}</span> : null}
+                {active ? <button className='doneBtn' onClick={() => { doneTask(id) }}>Done</button> : null}
+                <button className='deleteBtn' onClick={() => { showDialog(id) }}>Delete</button>
+            </div>
+
         </li>
 
     );

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import '../style/AddTask.css';
+import '../style/style.css';
 
 
 const AddTask = ({ addTask }) => {

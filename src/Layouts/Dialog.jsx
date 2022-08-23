@@ -1,15 +1,15 @@
 import React from 'react';
 
-import '../style/Dialog.css'
+import '../style/style.css'
 
 const Dialog = ({ confirmDelete, rejectDelete }) => {
 
 
     return (
         <div className='dialog'>
-            <h3>Are you sure to delete this task?</h3>
-            <button onClick={confirmDelete}>Yes</button>
-            <button onClick={rejectDelete}>No</button>
+            <p>Are you sure to delete this task?</p>
+            <button className='yes' onClick={confirmDelete}>Yes</button>
+            <button className='no' onClick={rejectDelete}>No</button>
         </div>
     );
 }
