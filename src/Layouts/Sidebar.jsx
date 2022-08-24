@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
-import SidebarNavLine from './SidebarNavLine';
+
+import SidebarNavigation from './SidebarNavigation';
+
 
 import '../style/style.css'
 import "../fonts/font-awesome-4.7.0/css/font-awesome.css";
@@ -15,16 +17,19 @@ const Sidebar = ({ active, done }) => {
         setSidebarVisibility(!sidebarVisibility)
     }
 
+
     const sidebar = () => {
         if (sidebarVisibility) {
             return (
                 <div className='sidebar visible'>
                     <button className="fa fa-angle-left fa-2x" aria-hidden="true" onClick={toggleSidebarVisibility}></button>
-                    <ul className='sidebarBtnContainer'>
-                        <SidebarNavLine task={active} task2={done} name={'All Tasks'} />
-                        <SidebarNavLine task={active} name={'Active Tasks'} />
-                        <SidebarNavLine task={done} name={'Done Tasks'} />
-                    </ul>
+                    <nav>
+                        <ul>
+
+                            <SidebarNavigation task={active} task2={done} />
+                        </ul>
+                    </nav>
+
 
                 </div >)
         } else {

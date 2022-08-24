@@ -1,4 +1,6 @@
 import React, { useRef, useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 
 import Header from './Layouts/Header';
 import Main from './Layouts/Main';
@@ -91,28 +93,31 @@ const App = () => {
 
 
    return (
-      <div className='App'>
-         <header>
-            <Header />
-         </header>
-         <main>
-            <Sidebar
-               active={active}
-               done={done}
-            />
-            <Main
-               tasks={tasks}
-               doneTask={doneTask}
-               showDialog={showDialog}
-               addTask={addTask}
-            />
-            {dialog ? <Dialog
-               confirmDelete={confirmDelete}
-               rejectDelete={rejectDelete}
-            /> : null}
-         </main>
+      <Router basename={process.env.PUBLIC_URL}>
 
-      </div>
+         <div className='App'>
+            <header>
+               <Header />
+            </header>
+            <main>
+               <Sidebar
+                  active={active}
+                  done={done}
+               />
+               <Main
+                  tasks={tasks}
+                  doneTask={doneTask}
+                  showDialog={showDialog}
+                  addTask={addTask}
+               />
+               {dialog ? <Dialog
+                  confirmDelete={confirmDelete}
+                  rejectDelete={rejectDelete}
+               /> : null}
+            </main>
+
+         </div>
+      </Router>
    );
 }
 

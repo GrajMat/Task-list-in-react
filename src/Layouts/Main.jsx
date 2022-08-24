@@ -1,7 +1,11 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 
 import Task from './Task';
 import AddTask from './AddTask'
+import AllTasks from '../pages/AllTasks';
+import DoneTasks from '../pages/DoneTasks';
+import ToDoTasks from '../pages/ToDoTasks';
 
 import '../style/style.css'
 
@@ -32,10 +36,6 @@ const Main = ({ tasks, doneTask, showDialog, addTask }) => {
         })
 
     }
-
-
-
-
     //sortowanie alfabetyczne
 
     // if (active.length >= 2) {
@@ -59,7 +59,7 @@ const Main = ({ tasks, doneTask, showDialog, addTask }) => {
 
             <AddTask addTask={addTask} />
 
-            <div className='tasks' id="activeTask">
+            {/* <div className='tasks' id="activeTask">
                 <div className='taskHeader'>
                     <h2 style={{ backgroundColor: '#FFA2A2' }}>To do</h2>
                     <span>{activeTasks.length}</span>
@@ -77,7 +77,13 @@ const Main = ({ tasks, doneTask, showDialog, addTask }) => {
                 <ul>
                     {doneTasks}
                 </ul>
-            </div>
+            </div> */}
+            <Routes>
+                <Route path="/" element={<AllTasks activeTasks={activeTasks} doneTasks={doneTasks} />} />
+                <Route path="/to-do-tasks" element={<ToDoTasks activeTasks={activeTasks} />} />
+                <Route path="/done-tasks" element={<DoneTasks doneTasks={doneTasks} />} />
+
+            </Routes>
 
         </div>
     );
