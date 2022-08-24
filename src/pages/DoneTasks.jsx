@@ -5,7 +5,7 @@ const DoneTasks = ({ doneTasks }) => {
         <>
             <div className='tasks' id="activeTask">
                 <div className='taskHeader'>
-                    <h2 style={{ backgroundColor: '#FFA2A2' }}>To do</h2>
+                    <h2 style={{ backgroundColor: '#A7E6FF' }}>Done</h2>
                     <span>{doneTasks.length}</span>
                 </div>
                 <ul>

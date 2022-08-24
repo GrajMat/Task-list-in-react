@@ -18,20 +18,28 @@ const Sidebar = ({ active, done }) => {
     }
 
 
+
+
+
+
+
     const sidebar = () => {
         if (sidebarVisibility) {
             return (
                 <div className='sidebar visible'>
-                    <button className="fa fa-angle-left fa-2x" aria-hidden="true" onClick={toggleSidebarVisibility}></button>
+                    <button
+                        className="fa fa-angle-left fa-2x"
+                        aria-hidden="true"
+                        onClick={toggleSidebarVisibility}>
+                    </button>
                     <nav>
                         <ul>
-
-                            <SidebarNavigation task={active} task2={done} />
+                            <SidebarNavigation activeTasks={active} doneTasks={done} />
                         </ul>
                     </nav>
 
-
-                </div >)
+                </div >
+            )
         } else {
             return (
                 <div className='sidebar hidden'>
