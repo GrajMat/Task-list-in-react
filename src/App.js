@@ -20,7 +20,13 @@ const App = () => {
       { id: 2, text: "Zadanie 3", date: "2022-05-18", active: true, important: false, finishDate: null },
       { id: 3, text: "Zadanie 4", date: "2022-05-09", active: true, important: false, finishDate: null },
       { id: 4, text: "Zadanie 5", date: "2022-04-30", active: true, important: false, finishDate: null },
-      { id: 5, text: "Zadanie 6", date: "2022-05-01", active: true, important: false, finishDate: null }
+      { id: 5, text: "Zadanie 6", date: "2022-05-01", active: true, important: false, finishDate: null },
+      { id: 6, text: "Zadanie 6", date: "2022-05-01", active: true, important: false, finishDate: null },
+      { id: 7, text: "Zadanie 6", date: "2022-05-01", active: true, important: false, finishDate: null },
+      { id: 8, text: "Zadanie 6", date: "2022-05-01", active: true, important: false, finishDate: null },
+      { id: 9, text: "Zadanie 6", date: "2022-05-01", active: true, important: false, finishDate: null },
+      { id: 10, text: "Zadanie 6", date: "2022-05-01", active: true, important: false, finishDate: null },
+      { id: 11, text: "Zadanie 6", date: "2022-05-01", active: true, important: false, finishDate: null },
    ]);
 
    const [dialog, setDialog] = useState(false)
@@ -88,6 +94,17 @@ const App = () => {
 
    //show Dialog component
    const rejectDelete = () => setDialog(false)
+
+
+   // const stickSidebar = () => {
+   //    const header = document.getElementsByTagName('header');
+   //    const headerHeight = header.ClientHeight;
+   //    if (header.scrollTop > headerHeight) {
+   //       console.log("przescrollowane");
+
+   //    }
+   // }
+
 
 
 
