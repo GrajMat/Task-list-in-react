@@ -26,7 +26,7 @@ const Sidebar = ({ active, done }) => {
     const sidebar = () => {
         if (sidebarVisibility) {
             return (
-                <div className='sidebar visible'>
+                <div className='sidebar  visible'>
                     <button
                         className="fa fa-angle-left fa-2x"
                         aria-hidden="true"
@@ -42,7 +42,7 @@ const Sidebar = ({ active, done }) => {
             )
         } else {
             return (
-                <div className='sidebar hidden'>
+                <div className='sidebar  hidden'>
                     <button className="fa fa-angle-right fa-2x" aria-hidden="true" onClick={toggleSidebarVisibility}></button>
                 </div>
             )

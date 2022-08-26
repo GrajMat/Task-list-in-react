@@ -3,6 +3,12 @@
     padding: 0;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
+
+}
+
+.App {
+    height: 100%;
+    width: 100%;
 }
 
 body {
@@ -47,14 +53,13 @@ body {
 
 /* Dialog */
 .dialog {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #fff;
-    padding: 10px;
+    background: #e4e4e4;
+    padding: 15px;
     border-radius: 10px;
-    border: 2px solid #4C4E69
 }
 
 .dialog p {
@@ -111,6 +116,9 @@ main {
     background-color: #fff;
 }
 
+
+
+
 /* sidebar  */
 
 .sidebar {
@@ -125,28 +133,65 @@ main {
     transition: .3s;
 }
 
+.sticky {
+    position: fixed;
+    top: 0px;
+}
+
+
 .visible {
     width: 300px;
 }
 
 .hidden {
-    width: 50px;
+    width: 0px;
 }
 
 .sidebar button {
     border: none;
     position: absolute;
-    right: 15px;
-    top: 15px;
-    cursor: pointer;
+    top: 5px;
     color: #4C4E69;
-    background-color: transparent;
     transition: .3s;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #e4e4e4;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+
 }
+
+.visible button {
+
+    right: 10px;
+    color: #4C4E69;
+    transition: .3s;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #e4e4e4;
+}
+
+.visible button:hover {
+    transform: translateX(-10%);
+}
+
+.hidden button {
+    right: -45px;
+}
+
+.hidden button:hover {
+    transform: translateX(10%);
+
+}
+
+
 
 nav {
     position: relative;
-    margin-top: 50px;
+    margin-top: 55px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -161,27 +206,27 @@ nav ul {
 }
 
 nav .sidebarNav {
+    position: relative;
     list-style-type: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
     font-size: 0.9em;
-    padding: 2px 7px;
     border: none;
     color: #4C4E69;
-    cursor: pointer;
     width: 100%;
     font-weight: 500;
-    color: #4C4E69;
     font-size: 1em;
-    transition: 0.3s;
-    padding: 10px;
-    border-radius: 5px;
+    margin: 5px;
 
 }
 
-nav .sidebarNav:hover {
+
+
+
+
+.active {
     background-color: #fff;
 }
 
@@ -196,6 +241,8 @@ nav .sidebarNav span:nth-child(2) {
     border-radius: 20px;
     color: #4C4E69;
     background-color: #fff;
+    transition: 0.3s;
+
 }
 
 nav a {
@@ -205,9 +252,27 @@ nav a {
     width: 100%;
     color: #4C4E69;
     text-decoration: none;
+    transition: 0.3s;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+
 }
 
+nav a:hover {
+    background-color: #fff;
+}
 
+/* nav .sidebarNav .active span:nth-child(2) {
+    background-color: #e4e4e4;
+}
+
+nav .sidebarNav a:hover span:nth-child(2) {
+    background-color: #e4e4e4;
+} */
+
+
+/* main container  */
 .mainContainer {
 
     width: 100%;
@@ -270,11 +335,28 @@ nav a {
     border-left: 1px solid #e4e4e4;
     border-right: 1px solid #e4e4e4;
     border-bottom: 1px solid #e4e4e4;
-    padding: 5px 10px;
+    padding: 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
+}
+
+.tasks ul li div:nth-child(1) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+
+}
+
+.tasks ul li div:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
 }
 
 .tasks button {
@@ -286,6 +368,7 @@ nav a {
     color: #4C4E69;
     cursor: pointer;
     height: 30px;
+    width: 80px;
 }
 
 .tasks .deleteBtn {
@@ -306,10 +389,73 @@ nav a {
 }
 
 .tasks ul li span.text {
-    width: 400px;
+    width: auto;
     text-align: left;
 }
 
 .tasks ul li span.date span {
     font-size: 0.8em;
+    flex-wrap: nowrap;
+}
+
+
+
+
+
+
+/* media */
+@media (max-width: 991px) {
+    .addTask {
+
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+
+    }
+}
+
+@media (max-width: 767px) {
+
+
+    .sidebar {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        height: 100%;
+
+    }
+
+    .visible {
+        width: 100%;
+        z-index: 10;
+    }
+
+    /* .mainContainer {
+        width: auto;
+    } */
+
+
+    .tasks ul li {
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+
+    .tasks ul li div:nth-child(1) {
+
+        justify-content: center;
+    }
+
+    .tasks ul li div:nth-child(2) {
+
+        flex-direction: column;
+        margin-top: 10px;
+        margin-bottom: 20px;
+
+    }
+
+    .tasks button {
+        margin-bottom: 5px;
+    }
 }
