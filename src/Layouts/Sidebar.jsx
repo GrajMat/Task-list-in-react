@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 import SidebarNavigation from './SidebarNavigation';
@@ -11,16 +11,21 @@ import "../fonts/font-awesome-4.7.0/css/font-awesome.css";
 
 const Sidebar = ({ active, done }) => {
 
-    const [sidebarVisibility, setSidebarVisibility] = useState(true);
+    const [sidebarVisibility, setSidebarVisibility] = useState(false);
+
+    // console.log(typeof (width));
+    useEffect(() => {
+        const width = window.innerWidth;
+
+        if (width > 766) {
+            setSidebarVisibility(true)
+        }
+    }, []);
 
     const toggleSidebarVisibility = () => {
+
         setSidebarVisibility(!sidebarVisibility)
     }
-
-
-
-
-
 
 
     const sidebar = () => {
