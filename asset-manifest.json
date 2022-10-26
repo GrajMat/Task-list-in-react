@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Task-list-in-react/static/css/main.8592d610.css",
-    "main.js": "/Task-list-in-react/static/js/main.ea7ef864.js",
+    "main.js": "/Task-list-in-react/static/js/main.26eb3696.js",
     "static/js/787.489a4165.chunk.js": "/Task-list-in-react/static/js/787.489a4165.chunk.js",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/Task-list-in-react/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
     "static/media/fontawesome-webfont.eot": "/Task-list-in-react/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
@@ -10,11 +10,11 @@
     "static/media/fontawesome-webfont.woff2?v=4.7.0": "/Task-list-in-react/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
     "index.html": "/Task-list-in-react/index.html",
     "main.8592d610.css.map": "/Task-list-in-react/static/css/main.8592d610.css.map",
-    "main.ea7ef864.js.map": "/Task-list-in-react/static/js/main.ea7ef864.js.map",
+    "main.26eb3696.js.map": "/Task-list-in-react/static/js/main.26eb3696.js.map",
     "787.489a4165.chunk.js.map": "/Task-list-in-react/static/js/787.489a4165.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8592d610.css",
-    "static/js/main.ea7ef864.js"
+    "static/js/main.26eb3696.js"
   ]
 }
